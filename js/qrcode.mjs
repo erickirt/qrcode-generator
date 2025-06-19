@@ -15,15 +15,15 @@
 //
 //---------------------------------------------------------------------
 
-  //---------------------------------------------------------------------
-  // qrcode
-  //---------------------------------------------------------------------
+//---------------------------------------------------------------------
+// qrcode
+//---------------------------------------------------------------------
 
-  /**
-   * qrcode
-   * @param typeNumber 1 to 40
-   * @param errorCorrectionLevel 'L','M','Q','H'
-   */
+/**
+ * qrcode
+ * @param typeNumber 1 to 40
+ * @param errorCorrectionLevel 'L','M','Q','H'
+ */
 export const qrcode = function(typeNumber, errorCorrectionLevel) {
 
   const PAD0 = 0xEC;
@@ -1882,7 +1882,7 @@ const base64EncodeOutputStream = function() {
 
   const encode = function(n) {
     if (n < 0) {
-      // error.
+      throw 'n:' + n;
     } else if (n < 26) {
       return 0x41 + n;
     } else if (n < 52) {
@@ -1893,8 +1893,9 @@ const base64EncodeOutputStream = function() {
       return 0x2b;
     } else if (n == 63) {
       return 0x2f;
+    } else {
+      throw 'n:' + n;
     }
-    throw 'n:' + n;
   };
 
   _this.writeByte = function(n) {
