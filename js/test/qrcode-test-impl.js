@@ -290,13 +290,25 @@ export const misc = function(qrcode) {
     });
 
     it('- (for coverage)', function(){
+
+      let s = '';
+      s += 'data:image/gif;base64,R0lGODdhSgBKAIAAAAAAAP///ywAAAAASgBKAAAC/4yPqcvtD6OctNqLs9';
+      s += '68+w+G4kiWZgKk6roiLGC8aay68kvd+LHf9MzTtSZABnB4rAWSxSWs0YREUU9kVcl80hxT7tW6pdrCim';
+      s += 'wy98Vey1onWewEE9PnuO7XbprXc3xdmDUW5McnsRfWFRQI19MmRceXiDfJyPL26EWIVmfk+CDpZgfKxr';
+      s += 'kwSgUYqYqomroJyBob+pfqCeIzW3jyKle6qyfTCdx7lzFsaaqkmYuLAUxpqGy3fNopOBR9TG0L5blo4z';
+      s += 'uY/NxXOSXHJpzH/XrNTU7YyIGday0ej1ytKC1fH4pvz8KObbKO0RPkDBK4dW+s1GL3SeE+dwvxNSvHqh';
+      s += 'SuPegakUVz17HfxnUHIxz6h5LeOZK60BC8Nw1mQzUCW4pKA+3mwJj6ZC1cpBLWRJS8IHakmOxShZ3pUj';
+      s += 'IkKq7nUGI+o+K8qfQR0FVQaZ2Uas8ry5lCciYsyI/mvpFgY/40Ki2jUKklmaLyBmkkibL+EK6F6IFvuJ';
+      s += 'Uls83lSoxWxTmu/G2lFBIwnLDv0prFegFUuJzf/p7FTC4ox8MuQT8VnZd0uX5ym6rbbFJi6LhQ32aN/X';
+      s += 'JnUFIsC3fL7dFt17R2M/0+frn0R+RJh342zJcsXotCoReT3vRh8V3cu3v/Dj68+PHky5s/b74AADs=';
+
       const qr = qrcode(3, 'H');
       qr.addData('A\u0020$%*+-./:Z', 'Alphanumeric');
       qr.addData('1234', 'Numeric');
       qr.addData('12345', 'Numeric');
       qr.addData('123456', 'Numeric');
       qr.make();
-      expect(!!qr.createDataURL() ).to.be.true;
+      expect(capture('s', qr.createDataURL() ) ).to.equal(s);
     });
 
     const dataURLHandler = function(dataURL) {
