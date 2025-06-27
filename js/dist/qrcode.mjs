@@ -2232,4 +2232,6 @@ const createDataURL = function(width, height, getPixel) {
   return 'data:image/gif;base64,' + base64;
 };
 
+export default qrcode;
+
 export const stringToBytes = qrcode.stringToBytes;
