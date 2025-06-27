@@ -1,6 +1,6 @@
 {
   "name": "qrcode-generator",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "QR Code Generator implementation in JavaScript.",
   "author": "Kazuhiko Arase",
   "license": "MIT",
@@ -9,7 +9,8 @@
   "types": "dist/qrcode.d.ts",
   "exports": {
     "require": "./dist/qrcode.js",
-    "import": "./dist/qrcode.mjs"
+    "import": "./dist/qrcode.mjs",
+    "types": "./dist/qrcode.d.ts"
   },
   "directories": {
     "dist": "dist"
