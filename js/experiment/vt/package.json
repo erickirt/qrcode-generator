@@ -6,10 +6,6 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "build:umd": "tsc && vite --config vite.config_umd.js build",
-    "build:umd-sjis": "tsc && vite --config vite.config_umd-sjis.js build",
-    "build:umd-utf8": "tsc && vite --config vite.config_umd-utf8.js build",
-    "build:umd-all": "tsc && vite --config vite.config_umd.js build && vite --config vite.config_umd-sjis.js build && vite --config vite.config_umd-utf8.js build",
     "preview": "vite preview"
   },
   "devDependencies": {
