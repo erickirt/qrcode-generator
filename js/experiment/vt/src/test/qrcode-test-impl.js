@@ -275,10 +275,14 @@ export const misc = function(qrcode) {
     it('svg tag by object (for coverage)', function(){
 
       let count = 0;
+      let check = 0;
       const context = {
         fillStyle : '',
         fillRect : function() {
           count += 1;
+          if (this.fillStyle == 'black') {
+            check = (check + count) % 256;
+          }
         },
       };
 
@@ -287,6 +291,7 @@ export const misc = function(qrcode) {
       qr.make();
       qr.renderTo2dContext(context);
       expect(count).to.equal(21 * 21);
+      expect(check).to.equal(181);
     });
 
     it('- (for coverage)', function(){
