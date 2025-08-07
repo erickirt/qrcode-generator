@@ -278,10 +278,10 @@ export const misc = function(qrcode) {
       let check = 0;
       const context = {
         fillStyle : '',
-        fillRect : function() {
+        fillRect : function(x, y, _width, _height) {
           count += 1;
           if (this.fillStyle == 'black') {
-            check = (check + count) % 256;
+            check += x + y * 21;
           }
         },
       };
@@ -291,7 +291,7 @@ export const misc = function(qrcode) {
       qr.make();
       qr.renderTo2dContext(context);
       expect(count).to.equal(21 * 21);
-      expect(check).to.equal(181);
+      expect(check).to.equal(93106);
     });
 
     it('- (for coverage)', function(){
